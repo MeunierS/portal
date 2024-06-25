@@ -32,4 +32,10 @@ public class Portal : MonoBehaviour
             obj.EnterPortal(transform, otherPortal);
         }
     }
+    void OnTriggerExit(Collider other){
+        PortalableObject obj = other.GetComponent<PortalableObject>();
+        if (portalableObjects.Contains(obj)){
+            portalableObjects.Remove(obj);
+        }
+    }
 }
